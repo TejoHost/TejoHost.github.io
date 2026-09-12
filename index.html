@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quinta do Tejo — Turismo & Natureza | Alojamento na Lezíria de Almeirim</title>
+<meta name="description" content="Quinta do Tejo: alojamento local na margem do Tejo, em Almeirim. Piscina, vinha e pequeno-almoço regional. Reserve diretamente, sem comissões.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' fill='%232E5C58'/%3E%3Cpath d='M20 6 L34 20 L20 34 L6 20 Z' fill='none' stroke='%23C1922F' stroke-width='2'/%3E%3Ccircle cx='20' cy='20' r='3' fill='%23C1922F'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+/* ============ RESET ============ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+img,svg{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+button{font:inherit;cursor:pointer;}
+ul{list-style:none;}
+input,select{font:inherit;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{animation-duration:0.001ms !important;animation-iteration-count:1 !important;transition-duration:0.001ms !important;}
+}
+
+/* ============ TOKENS ============ */
+:root{
+  --paper:#F3EEE0;
+  --paper-2:#EAE3CF;
+  --card:#FBF8F1;
+  --ink:#1E2C24;
+  --ink-70:rgba(30,44,36,.72);
+  --ink-50:rgba(30,44,36,.52);
+  --river:#2E5C58;
+  --river-light:#4B7D75;
+  --gold:#C1922F;
+  --gold-light:#E4C476;
+  --clay:#A6502F;
+  --line:rgba(30,44,36,.14);
+  --line-on-dark:rgba(243,238,224,.22);
+  --radius-s:6px;
+  --radius-m:14px;
+  --shadow:0 18px 40px -22px rgba(30,44,36,.35);
+  --font-display:'Fraunces', ui-serif, Georgia, serif;
+  --font-body:'Work Sans', ui-sans-serif, system-ui, sans-serif;
+}
+
+body{
+  font-family:var(--font-body);
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 1px 1px, rgba(30,44,36,.06) 1px, transparent 0) 0 0/22px 22px,
+    var(--paper);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+
+.wrap{
+  max-width:1180px;
+  margin-inline:auto;
+  padding-inline:clamp(20px,4vw,48px);
+}
+
+h1,h2,h3{
+  font-family:var(--font-display);
+  font-weight:500;
+  line-height:1.08;
+  letter-spacing:-0.01em;
+  color:var(--ink);
+}
+h2{font-size:clamp(1.9rem,3.4vw,2.7rem);font-weight:500;}
+h3{font-size:clamp(1.2rem,2vw,1.5rem);font-weight:500;}
+p{max-width:62ch;}
+.eyebrow-none{ } /* intentionally no all-caps eyebrow labels used in this design */
+
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, label:focus-visible{
+  outline:2.5px solid var(--clay);
+  outline-offset:3px;
+  border-radius:4px;
+}
+
+.skip-link{
+  position:absolute;left:-999px;top:auto;
+  background:var(--ink);color:var(--paper);padding:12px 20px;border-radius:0 0 8px 0;z-index:200;
+}
+.skip-link:focus{left:0;top:0;}
+
+/* ============ SPRITE ICONS ============ */
+.sprite{position:absolute;width:0;height:0;overflow:hidden;}
+
+.icon{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
+
+/* ============ BUTTONS ============ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:14px 26px;
+  border-radius:var(--radius-s);
+  font-weight:600;
+  font-size:.98rem;
+  border:1.5px solid var(--ink);
+  transition:background .2s ease, color .2s ease, border-color .2s ease;
+  white-space:nowrap;
+}
+.btn-primary{background:var(--ink);color:var(--paper);}
+.btn-primary:hover{background:var(--river);border-color:var(--river);}
+.btn-ghost{background:transparent;color:var(--ink);}
+.btn-ghost:hover{background:var(--ink);color:var(--paper);}
+.btn-on-dark{border-color:var(--paper);color:var(--paper);}
+.btn-on-dark:hover{background:var(--paper);color:var(--river);}
+.btn-block{width:100%;}
+.btn-small{padding:10px 18px;font-size:.88rem;}
+
+/* ============ HEADER ============ */
+header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(243,238,224,.92);
+  backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);
+}
+.nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding-block:16px;
+}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-size:1.28rem;font-weight:500;}
+.brand .mark{width:30px;height:30px;color:var(--river);}
+.nav-links{display:flex;align-items:center;gap:32px;}
+.nav-links a{font-size:.96rem;font-weight:500;color:var(--ink-70);transition:color .2s;}
+.nav-links a:hover{color:var(--river);}
+.nav-cta{
+  margin-left:8px;
+  background-color: var(--ink) !important;
+  color: var(--paper) !important;
+}
+.nav-cta:hover{
+  background-color: var(--river) !important;
+  border-color: var(--river) !important;
+  color: var(--paper) !important;
+}
+
+.nav-toggle{display:none;}
+.nav-burger{display:none;}
+
+@media (max-width:880px){
+  .nav-links{
+    position:fixed;inset:64px 0 0 0;
+    background:var(--paper);
+    flex-direction:column;
+    align-items:flex-start;
+    gap:0;
+    padding:8px 24px 24px;
+    border-top:1px solid var(--line);
+    transform:translateY(-8px);
+    opacity:0;pointer-events:none;
+    transition:opacity .2s ease, transform .2s ease;
+  }
+  .nav-links a{width:100%;padding:14px 0;border-bottom:1px solid var(--line);}
+  .nav-cta{margin:16px 0 0;}
+  .nav-toggle:checked ~ .nav-links{opacity:1;pointer-events:auto;transform:translateY(0);}
+  .nav-burger{
+    display:flex;flex-direction:column;gap:5px;width:26px;cursor:pointer;padding:6px;
+  }
+  .nav-burger span{height:2px;background:var(--ink);border-radius:2px;transition:transform .2s;}
+}
+
+/* ============ HERO ============ */
+.hero{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  align-items:stretch;
+  gap:0;
+  overflow:hidden;
+}
+.hero-copy{
+  padding:clamp(48px,7vw,88px) clamp(20px,4vw,56px) clamp(48px,7vw,88px) clamp(20px,4vw,56px);
+  display:flex;flex-direction:column;justify-content:center;
+  max-width:640px;
+}
+.hero-mark{width:34px;height:34px;color:var(--gold);margin-bottom:22px;}
+.hero-copy h1{font-size:clamp(2.6rem,5.2vw,4.1rem);}
+.hero-copy .lede{
+  margin-top:20px;font-size:1.15rem;color:var(--ink-70);max-width:46ch;
+}
+.hero-actions{margin-top:34px;display:flex;flex-wrap:wrap;align-items:center;gap:16px;}
+.hero-note{font-size:.88rem;color:var(--ink-50);}
+
+.hero-art{
+  position:relative;
+  background:linear-gradient(180deg,#284A47 0%, var(--river) 55%, #23433F 100%);
+  min-height:420px;
+}
+.hero-art svg{position:absolute;inset:0;width:100%;height:100%;}
+
+/* hero illustration motion */
+.h-sun{animation:hFade 1.1s ease both;}
+.h-birds path{animation:hFly 1.4s ease both;}
+.h-birds path:nth-child(2){animation-delay:.12s;}
+.h-birds path:nth-child(3){animation-delay:.24s;}
+.h-river-line{
+  stroke-dasharray:900;stroke-dashoffset:900;
+  animation:hDraw 1.6s ease-out .2s forwards;
+}
+@keyframes hFade{from{opacity:0;transform:translateY(-6px);}to{opacity:1;transform:translateY(0);}}
+@keyframes hFly{from{opacity:0;transform:translate(-14px,-6px);}to{opacity:1;transform:translate(0,0);}}
+@keyframes hDraw{to{stroke-dashoffset:0;}}
+
+/* ============ BOOKING WIDGET ============ */
+.booking{
+  position:relative;
+  margin-top:-46px;
+  z-index:5;
+}
+.booking-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius-m);
+  box-shadow:var(--shadow);
+  padding:clamp(20px,3vw,30px);
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+  align-items:end;
+}
+.field{display:flex;flex-direction:column;gap:8px;}
+.field label{font-size:.82rem;font-weight:600;color:var(--ink-70);}
+.field .control{
+  border:1.5px solid var(--line);
+  border-radius:var(--radius-s);
+  padding:11px 12px;
+  background:var(--paper);
+  font-size:.95rem;
+  color:var(--ink);
+}
+.field .control:focus{border-color:var(--river);outline:none;}
+.booking-status{
+  grid-column:1/-1;font-size:.9rem;color:var(--river);min-height:1.2em;font-weight:600;
+}
+@media (max-width:880px){
+  .booking-card{grid-template-columns:1fr 1fr;}
+  .booking-card .btn{grid-column:1/-1;}
+}
+
+/* ============ SECTIONS GENERIC ============ */
+section{padding-block:clamp(64px,9vw,112px);}
+.section-head{max-width:640px;margin-bottom:48px;}
+.section-head p{color:var(--ink-70);margin-top:14px;font-size:1.05rem;}
+
+/* ============ ABOUT ============ */
+.about-grid{
+  display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(32px,6vw,72px);align-items:start;
+}
+.about-text p{color:var(--ink-70);font-size:1.05rem;margin-bottom:16px;}
+.amenities{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius-m);
+  padding:clamp(24px,3vw,32px);
+}
+.amenities h3{margin-bottom:20px;}
+.amenities ul{display:flex;flex-direction:column;gap:18px;}
+.amenities li{display:flex;align-items:center;gap:14px;font-size:1rem;font-weight:500;}
+.amenities .icon{color:var(--river);}
+
+@media (max-width:880px){
+  .about-grid{grid-template-columns:1fr;}
+}
+
+/* ============ ROOMS ============ */
+.rooms-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:28px;
+}
+.room-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius-m);
+  overflow:hidden;
+  display:flex;flex-direction:column;
+}
+.room-strip{height:64px;width:100%;display:block;}
+.room-body{padding:26px 24px 24px;display:flex;flex-direction:column;gap:12px;flex:1;}
+.room-body h3{display:flex;align-items:center;gap:10px;}
+.room-body h3 .icon{width:20px;height:20px;color:var(--clay);}
+.room-body p{color:var(--ink-70);font-size:.98rem;flex:1;}
+.room-price{
+  display:flex;align-items:baseline;gap:6px;
+  font-family:var(--font-display);font-size:1.5rem;color:var(--river);margin-top:4px;
+}
+.room-price span{font-family:var(--font-body);font-size:.85rem;color:var(--ink-50);font-weight:500;}
+.room-body .btn{margin-top:10px;}
+
+@media (max-width:960px){
+  .rooms-grid{grid-template-columns:1fr;}
+}
+
+/* ============ GUIDE (dark band) ============ */
+.guide{
+  background:var(--river);
+  color:var(--paper);
+  position:relative;
+}
+.tile-strip{width:100%;height:20px;display:block;}
+.guide .section-head p{color:rgba(243,238,224,.82);}
+.guide .section-head h2{color:var(--paper);}
+.guide-grid{
+  display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(32px,6vw,72px);align-items:center;
+}
+.qr-box{
+  background:rgba(243,238,224,.06);
+  border:1px solid var(--line-on-dark);
+  border-radius:var(--radius-m);
+  padding:32px;
+  display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center;
+}
+.qr-box svg{width:150px;height:150px;}
+.qr-box p{color:rgba(243,238,224,.78);font-size:.92rem;max-width:26ch;}
+.guide-list{display:flex;flex-direction:column;}
+.guide-item{
+  display:flex;gap:18px;padding-block:22px;border-top:1px solid var(--line-on-dark);
+}
+.guide-item:last-child{border-bottom:1px solid var(--line-on-dark);}
+.guide-item .icon{color:var(--gold-light);width:28px;height:28px;margin-top:2px;}
+.guide-item h3{color:var(--paper);margin-bottom:6px;}
+.guide-item p{color:rgba(243,238,224,.78);font-size:.98rem;}
+
+@media (max-width:880px){
+  .guide-grid{grid-template-columns:1fr;}
+}
+
+/* ============ TESTIMONIALS ============ */
+.reviews-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:28px;
+}
+.review{
+  padding:30px 26px;
+  border-top:3px solid var(--gold);
+  background:var(--card);
+  border-radius:0 0 var(--radius-m) var(--radius-m);
+  display:flex;flex-direction:column;gap:16px;
+}
+.stars{display:flex;gap:4px;color:var(--gold);}
+.stars .icon{width:16px;height:16px;fill:currentColor;stroke:none;}
+.review blockquote{
+  font-family:var(--font-display);font-size:1.12rem;font-weight:400;line-height:1.5;color:var(--ink);
+}
+.review cite{font-style:normal;font-size:.88rem;color:var(--ink-50);font-weight:600;}
+
+@media (max-width:960px){
+  .reviews-grid{grid-template-columns:1fr;}
+}
+
+/* ============ FOOTER ============ */
+footer{background:var(--ink);color:var(--paper);}
+.footer-tile{width:100%;height:16px;display:block;}
+.footer-inner{
+  padding-block:clamp(48px,7vw,72px) 32px;
+  display:grid;grid-template-columns:1.2fr .9fr .9fr 1fr;gap:36px;
+}
+.footer-brand{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-size:1.2rem;margin-bottom:14px;}
+.footer-brand .mark{width:26px;height:26px;color:var(--gold-light);}
+.footer-col h4{font-size:.88rem;font-weight:600;color:var(--gold-light);margin-bottom:14px;}
+.footer-col p, .footer-col a{font-size:.94rem;color:rgba(243,238,224,.78);display:block;margin-bottom:8px;}
+.footer-col a:hover{color:var(--paper);}
+.footer-social{display:flex;gap:14px;margin-top:6px;}
+.footer-social a{
+  width:38px;height:38px;border:1px solid var(--line-on-dark);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s;
+}
+.footer-social a:hover{background:rgba(243,238,224,.1);border-color:var(--paper);}
+.footer-social .icon{width:17px;height:17px;color:var(--paper);}
+.guarantee{
+  border:1px solid var(--line-on-dark);border-radius:var(--radius-m);
+  padding:18px 20px;font-size:.92rem;color:rgba(243,238,224,.85);
+  display:flex;gap:12px;
+}
+.guarantee .icon{color:var(--gold-light);width:22px;height:22px;flex-shrink:0;margin-top:1px;}
+.footer-bottom{
+  border-top:1px solid var(--line-on-dark);
+  padding-block:20px;
+  font-size:.84rem;color:rgba(243,238,224,.55);
+}
+
+@media (max-width:880px){
+  .footer-inner{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:560px){
+  .footer-inner{grid-template-columns:1fr;}
+}
+
+/* ============ HERO RESPONSIVE ============ */
+@media (max-width:960px){
+  .hero{grid-template-columns:1fr;}
+  .hero-art{min-height:280px;order:-1;}
+  .hero-copy{max-width:none;}
+  .booking{margin-top:-30px;}
+}
+
+</style>
+</head>
+<body>
+<a href="#conteudo" class="skip-link">Saltar para o conteúdo</a>
+
+<!-- ============ ICON SPRITE ============ -->
+<svg class="sprite" aria-hidden="true">
+  <defs>
+    <symbol id="i-wifi" viewBox="0 0 40 40">
+      <path d="M8 17c6.6-6.6 17.4-6.6 24 0"/>
+      <path d="M13.5 22.5c3.6-3.6 9.4-3.6 13 0"/>
+      <path d="M18.5 27.5c1.4-1.4 2.6-1.4 4 0"/>
+      <circle cx="20" cy="31" r="1.6" fill="currentColor" stroke="none"/>
+    </symbol>
+    <symbol id="i-pool" viewBox="0 0 40 40">
+      <circle cx="29" cy="10" r="4"/>
+      <path d="M6 20c2.4 2 4.8 2 7.2 0s4.8-2 7.2 0 4.8 2 7.2 0 4.8-2 7.2 0"/>
+      <path d="M6 27c2.4 2 4.8 2 7.2 0s4.8-2 7.2 0 4.8 2 7.2 0 4.8-2 7.2 0"/>
+    </symbol>
+    <symbol id="i-parking" viewBox="0 0 40 40">
+      <rect x="7" y="6" width="26" height="28" rx="4"/>
+      <path d="M16 30V11h6.2a5 5 0 0 1 0 10H16"/>
+    </symbol>
+    <symbol id="i-breakfast" viewBox="0 0 40 40">
+      <path d="M9 15h17v8a8.5 8.5 0 0 1-8.5 8.5V23.5"/>
+      <path d="M26 17h3a3.6 3.6 0 0 1 0 7.2h-3"/>
+      <path d="M13 11c0-1.8 1-2.2 1-3.6M18 11c0-1.8 1-2.2 1-3.6"/>
+      <line x1="7" y1="33" x2="27" y2="33"/>
+    </symbol>
+    <symbol id="i-paw" viewBox="0 0 40 40">
+      <ellipse cx="20" cy="26" rx="8" ry="6.4"/>
+      <ellipse cx="9" cy="15" rx="3.4" ry="4.4"/>
+      <ellipse cx="18" cy="10" rx="3.4" ry="4.4"/>
+      <ellipse cx="27" cy="10" rx="3.4" ry="4.4"/>
+      <ellipse cx="33" cy="16.5" rx="3.4" ry="4.4"/>
+    </symbol>
+    <symbol id="i-wave" viewBox="0 0 40 40">
+      <path d="M6 15c3-3 6-3 9 0s6 3 9 0 6-3 9 0"/>
+      <path d="M6 22c3-3 6-3 9 0s6 3 9 0 6-3 9 0"/>
+      <path d="M6 29c3-3 6-3 9 0s6 3 9 0 6-3 9 0"/>
+    </symbol>
+    <symbol id="i-wheat" viewBox="0 0 40 40">
+      <line x1="20" y1="8" x2="20" y2="34"/>
+      <path d="M20 12l-6-4M20 12l6-4M20 18l-6-4M20 18l6-4M20 24l-6-4M20 24l6-4"/>
+    </symbol>
+    <symbol id="i-vine" viewBox="0 0 40 40">
+      <path d="M8 32c4-10 4-18 12-24"/>
+      <circle cx="14" cy="24" r="2.4"/>
+      <circle cx="18" cy="18" r="2.4"/>
+      <circle cx="24" cy="13" r="2.4"/>
+      <path d="M28 10c2 0 3.5 1.5 3.5 3.5S30 17 28 17"/>
+    </symbol>
+    <symbol id="i-route" viewBox="0 0 40 40">
+      <circle cx="9" cy="30" r="2.6"/>
+      <circle cx="31" cy="10" r="2.6"/>
+      <path d="M9 27.4C9 18 15 16 18 12s3-4 6-4"/>
+    </symbol>
+    <symbol id="i-fork" viewBox="0 0 40 40">
+      <path d="M13 6v12M10 6v8a3 3 0 0 0 3 3 3 3 0 0 0 3-3V6"/>
+      <line x1="13" y1="18" x2="13" y2="34"/>
+      <path d="M27 6c-3 0-4 3-4 7s1 6 4 6v15"/>
+    </symbol>
+    <symbol id="i-boat" viewBox="0 0 40 40">
+      <path d="M8 26h24l-3 6H11z"/>
+      <line x1="20" y1="26" x2="20" y2="8"/>
+      <path d="M20 9c5 1 8 5 9 9h-9z"/>
+    </symbol>
+    <symbol id="i-mail" viewBox="0 0 40 40">
+      <rect x="6" y="10" width="28" height="20" rx="3"/>
+      <path d="M7 12l13 10 13-10"/>
+    </symbol>
+    <symbol id="i-phone" viewBox="0 0 40 40">
+      <path d="M12 7h4l2 7-3.5 2.5a17 17 0 0 0 8 8L25 21l7 2v4c0 2.2-1.8 4-4 4C17 31 9 23 9 12c0-2.2 1.8-4 4-4z"/>
+    </symbol>
+    <symbol id="i-pin" viewBox="0 0 40 40">
+      <path d="M20 34S9 23.6 9 15.5a11 11 0 0 1 22 0C31 23.6 20 34 20 34z"/>
+      <circle cx="20" cy="15.5" r="4"/>
+    </symbol>
+    <symbol id="i-shield" viewBox="0 0 40 40">
+      <path d="M20 6l12 4v9c0 8-5.5 13.5-12 15-6.5-1.5-12-7-12-15v-9z"/>
+      <path d="M15 20l3.5 3.5L26 16"/>
+    </symbol>
+    <symbol id="i-star" viewBox="0 0 20 20">
+      <path d="M10 1.5l2.6 5.4 5.9.7-4.3 4.1 1 5.9L10 14.7l-5.2 2.9 1-5.9-4.3-4.1 5.9-.7z"/>
+    </symbol>
+    <symbol id="i-instagram" viewBox="0 0 40 40">
+      <rect x="7" y="7" width="26" height="26" rx="7"/>
+      <circle cx="20" cy="20" r="6.5"/>
+      <circle cx="28.5" cy="11.5" r="1.6" fill="currentColor" stroke="none"/>
+    </symbol>
+    <symbol id="i-facebook" viewBox="0 0 40 40">
+      <path d="M24 34V21h4.5l.7-5.6H24v-3.6c0-1.6.5-2.7 2.8-2.7H29V4.6C28.4 4.5 26.6 4 24.4 4c-4.5 0-7.6 2.7-7.6 7.7v4.7H12V21h4.8v13z"/>
+    </symbol>
+    <symbol id="i-leaf" viewBox="0 0 20 20">
+      <path d="M4 16C4 9 8 4 16 4c0 8-5 12-12 12z"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <nav class="nav wrap">
+    <a href="#topo" class="brand">
+      <svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 6 L34 20 L20 34 L6 20 Z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="20" cy="20" r="3" fill="currentColor"/></svg>
+      Quinta do Tejo
+    </a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="nav-burger" aria-label="Abrir menu"><span></span><span></span><span></span></label>
+    <div class="nav-links">
+      <a href="#sobre">Sobre</a>
+      <a href="#alojamentos">Alojamentos</a>
+      <a href="#guia">Guia Digital</a>
+      <a href="#avaliacoes">Avaliações</a>
+      <a href="#contacto">Contacto</a>
+      <a href="#reservar" class="btn btn-primary btn-small nav-cta">Reservar</a>
+    </div>
+  </nav>
+</header>
+
+<main id="conteudo">
+
+<!-- ============ HERO ============ -->
+<section id="topo" class="hero" style="padding-block:0;">
+  <div class="hero-copy">
+    <svg class="hero-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 6 L34 20 L20 34 L6 20 Z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="20" cy="20" r="3" fill="currentColor"/></svg>
+    <h1>O Tejo corre devagar por aqui.</h1>
+    <p class="lede">Uma quinta na Lezíria de Almeirim, entre vinhas, cavalos e o rio — a 15 minutos de Santarém e a menos de uma hora de Lisboa.</p>
+    <div class="hero-actions">
+      <a href="#reservar" class="btn btn-primary">Reservar Direto (Melhor Preço Garantido)</a>
+    </div>
+    <p class="hero-note">Sem comissões de plataformas de reserva. O preço mais justo é sempre aqui.</p>
+  </div>
+
+  <div class="hero-art" aria-hidden="true">
+    <svg viewBox="0 0 700 560" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
+      <circle class="h-sun" cx="560" cy="90" r="46" fill="#E4C476" opacity="0.9"/>
+      <path d="M0 300 C120 250 260 260 380 300 C480 330 600 300 700 260 L700 560 L0 560 Z" fill="#3A6A63"/>
+      <g stroke="#2E5C58" stroke-width="2" opacity="0.55">
+        <path d="M60 300 L100 470"/><path d="M110 296 L150 470"/><path d="M160 292 L200 468"/>
+        <path d="M210 292 L250 468"/><path d="M260 296 L300 470"/><path d="M310 300 L350 472"/>
+      </g>
+      <path d="M0 380 C140 340 260 420 400 380 C520 348 620 400 700 380 L700 560 L0 560 Z" fill="#264B46"/>
+      <path class="h-river-line" d="M0 470 C160 430 260 500 420 460 C540 432 620 470 700 450" fill="none" stroke="#9BC3BC" stroke-width="5" opacity="0.85"/>
+      <path d="M0 500 C160 470 260 520 420 495 C540 476 620 500 700 486 L700 560 L0 560 Z" fill="#1F3E39"/>
+      <g class="h-birds" stroke="#E4C476" stroke-width="2.4" fill="none" stroke-linecap="round">
+        <path d="M120 120 q10 -12 20 0 q10 -12 20 0"/>
+        <path d="M190 150 q9 -10 18 0 q9 -10 18 0"/>
+        <path d="M90 175 q8 -9 16 0 q8 -9 16 0"/>
+      </g>
+      <g transform="translate(470,430)" opacity="0.92">
+        <path d="M0 30 L70 30 L60 46 L10 46 Z" fill="#1F3E39"/>
+        <line x1="35" y1="30" x2="35" y2="-16" stroke="#1F3E39" stroke-width="2.4"/>
+        <path d="M35 -14 C50 -8 58 6 60 18 L35 18 Z" fill="#E4C476"/>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<!-- ============ BOOKING WIDGET ============ -->
+<div class="wrap booking" id="reservar">
+  <form class="booking-card" id="booking-form">
+    <div class="field">
+      <label for="checkin">Entrada</label>
+      <input class="control" type="date" id="checkin" name="checkin" required>
+    </div>
+    <div class="field">
+      <label for="checkout">Saída</label>
+      <input class="control" type="date" id="checkout" name="checkout" required>
+    </div>
+    <div class="field">
+      <label for="guests">Hóspedes</label>
+      <select class="control" id="guests" name="guests">
+        <option>1 hóspede</option>
+        <option selected>2 hóspedes</option>
+        <option>3 hóspedes</option>
+        <option>4 hóspedes</option>
+        <option>5+ hóspedes</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">Verificar Disponibilidade</button>
+    <p class="booking-status" id="booking-status" role="status"></p>
+  </form>
+</div>
+
+<!-- ============ SOBRE ============ -->
+<section id="sobre">
+  <div class="wrap about-grid">
+    <div class="about-text">
+      <div class="section-head" style="margin-bottom:24px;">
+        <h2>A quinta, o rio, o tempo que sobra</h2>
+      </div>
+      <p>A Quinta do Tejo fica onde a Lezíria de Almeirim desce suavemente até à margem do rio. A casa principal, de paredes caiadas e portadas verdes, guarda uma piscina rodeada de oliveiras e um pomar que dá sombra às tardes de verão.</p>
+      <p>Aqui, os dias organizam-se pelo sol e pelo silêncio: um mergulho antes do almoço, uma sesta à sombra, um passeio até à margem para ver os cavalos a pastar. Vem para descansar. O resto trata-se sozinho.</p>
+    </div>
+    <div class="amenities">
+      <h3>O que encontra por cá</h3>
+      <ul>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-wifi"/></svg> Wi-Fi em toda a propriedade</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-pool"/></svg> Piscina exterior</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-parking"/></svg> Estacionamento gratuito e privado</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-breakfast"/></svg> Pequeno-almoço regional incluído</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-paw"/></svg> Pet-friendly</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ALOJAMENTOS ============ -->
+<section id="alojamentos" style="background:var(--paper-2);">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Três formas de ficar</h2>
+      <p>Cada alojamento tem a sua própria vista e o seu próprio ritmo — escolha o que combina com a sua estadia.</p>
+    </div>
+    <div class="rooms-grid">
+
+      <article class="room-card">
+        <svg class="room-strip" viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true">
+          <rect width="300" height="40" fill="#2E5C58"/>
+          <g stroke="#E4C476" stroke-width="1.6" fill="none" opacity="0.9">
+            <path d="M0 15c8-6 16-6 24 0s16 6 24 0 16-6 24 0 16 6 24 0 16-6 24 0 16 6 24 0 16-6 24 0 16 6 24 0 16-6 24 0 16 6 24 0 16-6 24 0"/>
+          </g>
+        </svg>
+        <div class="room-body">
+          <h3><svg class="icon" aria-hidden="true"><use href="#i-wave"/></svg> Suíte Tejo</h3>
+          <p>Vista de rio, cama de casal e varanda privada. A mais próxima da margem, para acordar com a luz a refletir na água.</p>
+          <div class="room-price">€95 <span>/ noite</span></div>
+          <a href="#reservar" class="btn btn-ghost btn-block">Ver Detalhes / Reservar</a>
+        </div>
+      </article>
+
+      <article class="room-card">
+        <svg class="room-strip" viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true">
+          <rect width="300" height="40" fill="#A6502F"/>
+          <g stroke="#E4C476" stroke-width="1.6">
+            <line x1="10" y1="8" x2="10" y2="32"/><path d="M10 14l-5-4M10 14l5-4M10 22l-5-4M10 22l5-4"/>
+            <line x1="34" y1="8" x2="34" y2="32"/><path d="M34 14l-5-4M34 14l5-4M34 22l-5-4M34 22l5-4"/>
+            <line x1="58" y1="8" x2="58" y2="32"/><path d="M58 14l-5-4M58 14l5-4M58 22l-5-4M58 22l5-4"/>
+            <line x1="82" y1="8" x2="82" y2="32"/><path d="M82 14l-5-4M82 14l5-4M82 22l-5-4M82 22l5-4"/>
+            <line x1="106" y1="8" x2="106" y2="32"/><path d="M106 14l-5-4M106 14l5-4M106 22l-5-4M106 22l5-4"/>
+            <line x1="130" y1="8" x2="130" y2="32"/><path d="M130 14l-5-4M130 14l5-4M130 22l-5-4M130 22l5-4"/>
+            <line x1="154" y1="8" x2="154" y2="32"/><path d="M154 14l-5-4M154 14l5-4M154 22l-5-4M154 22l5-4"/>
+            <line x1="178" y1="8" x2="178" y2="32"/><path d="M178 14l-5-4M178 14l5-4M178 22l-5-4M178 22l5-4"/>
+            <line x1="202" y1="8" x2="202" y2="32"/><path d="M202 14l-5-4M202 14l5-4M202 22l-5-4M202 22l5-4"/>
+            <line x1="226" y1="8" x2="226" y2="32"/><path d="M226 14l-5-4M226 14l5-4M226 22l-5-4M226 22l5-4"/>
+            <line x1="250" y1="8" x2="250" y2="32"/><path d="M250 14l-5-4M250 14l5-4M250 22l-5-4M250 22l5-4"/>
+            <line x1="274" y1="8" x2="274" y2="32"/><path d="M274 14l-5-4M274 14l5-4M274 22l-5-4M274 22l5-4"/>
+          </g>
+        </svg>
+        <div class="room-body">
+          <h3><svg class="icon" aria-hidden="true"><use href="#i-wheat"/></svg> Casa da Lezíria</h3>
+          <p>Casa inteira com dois quartos, sala e cozinha equipada. Ideal para famílias ou grupos até cinco pessoas, com jardim próprio.</p>
+          <div class="room-price">€140 <span>/ noite</span></div>
+          <a href="#reservar" class="btn btn-ghost btn-block">Ver Detalhes / Reservar</a>
+        </div>
+      </article>
+
+      <article class="room-card">
+        <svg class="room-strip" viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true">
+          <rect width="300" height="40" fill="#4B7D75"/>
+          <g stroke="#F3EEE0" stroke-width="1.5" fill="none" opacity="0.9">
+            <path d="M0 34c10-16 10-24 26-30M26 12c4 0 7 3 7 7s-3 7-7 7"/>
+            <path d="M70 34c10-16 10-24 26-30M96 12c4 0 7 3 7 7s-3 7-7 7"/>
+            <path d="M140 34c10-16 10-24 26-30M166 12c4 0 7 3 7 7s-3 7-7 7"/>
+            <path d="M210 34c10-16 10-24 26-30M236 12c4 0 7 3 7 7s-3 7-7 7"/>
+            <path d="M280 34c6-10 6-16 16-22"/>
+          </g>
+        </svg>
+        <div class="room-body">
+          <h3><svg class="icon" aria-hidden="true"><use href="#i-vine"/></svg> Studio da Quinta</h3>
+          <p>Studio independente junto à vinha, com kitchenette e terraço. Perfeito para escapadelas a dois.</p>
+          <div class="room-price">€70 <span>/ noite</span></div>
+          <a href="#reservar" class="btn btn-ghost btn-block">Ver Detalhes / Reservar</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ GUIA DIGITAL ============ -->
+<section id="guia" class="guide">
+  <svg class="tile-strip" viewBox="0 0 800 20" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <pattern id="tileTop" width="40" height="20" patternUnits="userSpaceOnUse">
+        <rect width="40" height="20" fill="#264B46"/>
+        <path d="M20 3 L34 10 L20 17 L6 10 Z" fill="none" stroke="#E4C476" stroke-width="1.2"/>
+      </pattern>
+    </defs>
+    <rect width="800" height="20" fill="url(#tileTop)"/>
+  </svg>
+
+  <div class="wrap">
+    <div class="section-head">
+      <h2>O seu guia da região, sempre no bolso</h2>
+      <p>Todas as reservas diretas incluem acesso a um Guia Digital interativo, disponível por QR Code à chegada. Sem panfletos para perder, sem informação desatualizada — só as recomendações que valem a pena na Lezíria e no Ribatejo.</p>
+    </div>
+
+    <div class="guide-grid">
+      <div class="qr-box">
+        <svg viewBox="0 0 120 120" aria-hidden="true">
+          <rect width="120" height="120" rx="8" fill="#F3EEE0"/>
+          <g fill="#2E5C58">
+            <rect x="10" y="10" width="26" height="26"/><rect x="16" y="16" width="14" height="14" fill="#F3EEE0"/><rect x="21" y="21" width="4" height="4" fill="#2E5C58"/>
+            <rect x="84" y="10" width="26" height="26"/><rect x="90" y="16" width="14" height="14" fill="#F3EEE0"/><rect x="95" y="21" width="4" height="4" fill="#2E5C58"/>
+            <rect x="10" y="84" width="26" height="26"/><rect x="16" y="90" width="14" height="14" fill="#F3EEE0"/><rect x="21" y="95" width="4" height="4" fill="#2E5C58"/>
+            <rect x="46" y="14" width="6" height="6"/><rect x="58" y="14" width="6" height="6"/><rect x="46" y="26" width="6" height="6"/>
+            <rect x="70" y="46" width="6" height="6"/><rect x="82" y="46" width="6" height="6"/><rect x="46" y="58" width="6" height="6"/>
+            <rect x="58" y="58" width="6" height="6"/><rect x="70" y="58" width="6" height="6"/><rect x="94" y="58" width="6" height="6"/>
+            <rect x="46" y="70" width="6" height="6"/><rect x="70" y="70" width="6" height="6"/><rect x="82" y="82" width="6" height="6"/>
+            <rect x="94" y="94" width="6" height="6"/><rect x="58" y="94" width="6" height="6"/><rect x="70" y="94" width="6" height="6"/>
+          </g>
+        </svg>
+        <p>Aceda ao Guia Digital assim que fizer o check-in</p>
+      </div>
+
+      <div class="guide-list">
+        <div class="guide-item">
+          <svg class="icon" aria-hidden="true"><use href="#i-route"/></svg>
+          <div>
+            <h3>Rota dos Vinhos do Ribatejo</h3>
+            <p>As melhores quintas e adegas a visitar, com sugestões de provas e horários atualizados.</p>
+          </div>
+        </div>
+        <div class="guide-item">
+          <svg class="icon" aria-hidden="true"><use href="#i-fork"/></svg>
+          <div>
+            <h3>Restaurantes típicos</h3>
+            <p>Da Sopa da Pedra de Almeirim ao peixe do rio grelhado nas tabernas da margem — os lugares onde comem os que cá vivem.</p>
+          </div>
+        </div>
+        <div class="guide-item">
+          <svg class="icon" aria-hidden="true"><use href="#i-boat"/></svg>
+          <div>
+            <h3>Atividades no Rio Tejo</h3>
+            <p>Passeios de barco, canoagem e caminhadas ribeirinhas, para explorar o rio a um ritmo mais lento.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AVALIAÇÕES ============ -->
+<section id="avaliacoes">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Quem já ficou, conta</h2>
+    </div>
+    <div class="reviews-grid">
+
+      <div class="review">
+        <div class="stars" aria-hidden="true">
+          <svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg>
+          <svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg>
+          <svg class="icon"><use href="#i-star"/></svg>
+        </div>
+        <blockquote>Reservámos diretamente pelo site e poupámos face ao que tínhamos visto noutras plataformas. O contacto com a proprietária foi imediato e cheio de boas dicas.</blockquote>
+        <cite>— Marta e Ricardo, Lisboa</cite>
+      </div>
+
+      <div class="review">
+        <div class="stars" aria-hidden="true">
+          <svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg>
+          <svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg>
+          <svg class="icon"><use href="#i-star"/></svg>
+        </div>
+        <blockquote>Acordar com o rio ali ao lado e o cheiro a laranjeiras... foi das estadias mais tranquilas que já tivemos em Portugal.</blockquote>
+        <cite>— Helena Duarte, Porto</cite>
+      </div>
+
+      <div class="review">
+        <div class="stars" aria-hidden="true">
+          <svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg>
+          <svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg>
+          <svg class="icon"><use href="#i-star"/></svg>
+        </div>
+        <blockquote>O guia digital com o QR Code poupou-nos horas de pesquisa. Fomos direitos à Sopa da Pedra em Almeirim graças à recomendação.</blockquote>
+        <cite>— Família Santos, Coimbra</cite>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer id="contacto">
+  <svg class="footer-tile" viewBox="0 0 800 16" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <pattern id="tileFoot" width="32" height="16" patternUnits="userSpaceOnUse">
+        <rect width="32" height="16" fill="#1E2C24"/>
+        <path d="M16 2 L28 8 L16 14 L4 8 Z" fill="none" stroke="#C1922F" stroke-width="1"/>
+      </pattern>
+    </defs>
+    <rect width="800" height="16" fill="url(#tileFoot)"/>
+  </svg>
+
+  <div class="wrap footer-inner">
+    <div class="footer-col">
+      <div class="footer-brand">
+        <svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 6 L34 20 L20 34 L6 20 Z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="20" cy="20" r="3" fill="currentColor"/></svg>
+        Quinta do Tejo
+      </div>
+      <p>Turismo & Natureza na margem do rio, na Lezíria de Almeirim, Ribatejo.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram da Quinta do Tejo"><svg class="icon" style="width:17px;height:17px;"><use href="#i-instagram"/></svg></a>
+        <a href="#" aria-label="Facebook da Quinta do Tejo"><svg class="icon" style="width:17px;height:17px;"><use href="#i-facebook"/></svg></a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contactos</h4>
+      <a href="mailto:reservas@quintadotejo.pt"><svg class="icon" style="width:16px;height:16px;display:inline;vertical-align:-3px;margin-right:6px;"><use href="#i-mail"/></svg>reservas@quintadotejo.pt</a>
+      <a href="tel:+351243000000"><svg class="icon" style="width:16px;height:16px;display:inline;vertical-align:-3px;margin-right:6px;"><use href="#i-phone"/></svg>+351 243 000 000</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Localização</h4>
+      <p><svg class="icon" style="width:16px;height:16px;display:inline;vertical-align:-3px;margin-right:6px;"><use href="#i-pin"/></svg>Estrada da Lezíria, km 4<br>2090 Almeirim · Ribatejo</p>
+    </div>
+
+    <div class="footer-col">
+      <div class="guarantee">
+        <svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg>
+        <p style="margin:0;">Reserve sempre diretamente através deste site: garantimos o melhor preço, sem comissões de intermediários.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap footer-bottom">
+    © 2026 Quinta do Tejo. Todos os direitos reservados.
+  </div>
+</footer>
+
+<script>
+(function(){
+  var checkin = document.getElementById('checkin');
+  var checkout = document.getElementById('checkout');
+  var form = document.getElementById('booking-form');
+  var status = document.getElementById('booking-status');
+
+  var today = new Date();
+  var iso = today.toISOString().slice(0,10);
+  checkin.min = iso;
+  checkin.value = iso;
+
+  function nextDay(dateStr){
+    var d = new Date(dateStr);
+    d.setDate(d.getDate() + 1);
+    return d.toISOString().slice(0,10);
+  }
+  checkout.min = nextDay(iso);
+  checkout.value = nextDay(iso);
+
+  checkin.addEventListener('change', function(){
+    if(checkin.value){
+      checkout.min = nextDay(checkin.value);
+      if(checkout.value <= checkin.value){
+        checkout.value = nextDay(checkin.value);
+      }
+    }
+  });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    status.textContent = 'A verificar disponibilidade…';
+    window.setTimeout(function(){
+      status.textContent = 'Boas notícias: os 3 alojamentos têm vagas nestas datas.';
+      document.getElementById('alojamentos').scrollIntoView({behavior:'smooth', block:'start'});
+    }, 700);
+  });
+})();
+</script>
+
+</body>
+</html>
